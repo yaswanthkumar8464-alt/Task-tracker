@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="brand">Task Tracker</h1>
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search tasks..." />
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="sort">
+          <option value="created_desc">Newest</option>
+          <option value="created_asc">Oldest</option>
+          <option value="due_asc">Due Soon</option>
+          <option value="due_desc">Due Later</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="add-task">
+      <input id="taskTitle" placeholder="Add a new task and press Enter" />
+      <input id="taskDue" type="date" />
+      <button id="addBtn">Add</button>
+    </section>
+
+    <section id="taskList" class="task-list" aria-live="polite"></section>
+
+    <section class="footer-actions">
+      <div id="stats"></div>
+      <div class="small">
+        <button id="clearCompleted">Clear Completed</button>
+        <button id="clearAll">Clear All</button>
+      </div>
+    </section>
+  </main>
+
+  <template id="taskTpl">
+    <div class="task">
+      <label class="check">
+        <input type="checkbox" class="toggle" />
+        <span class="title"></span>
+      </label>
+      <div class="meta">
+        <span class="due"></span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
